@@ -10,8 +10,13 @@ public class User {
     private String id;
     private String name;
 
-    public User(String name){
-        this.id = UUID.randomUUID().toString();
-        this.name = name;
+    public static User from(String name){
+        User user = new User();
+        user.name = name;
+
+        return user;
     }
+
+
+
 }

@@ -2,7 +2,7 @@ package br.com.cleanarch.example.controller;
 
 import br.com.cleanarch.example.converter.UserRequestConverter;
 import br.com.cleanarch.example.request.UserRequest;
-import br.com.cleanarch.example.user.usecase.UserService;
+import br.com.cleanarch.example.user.contract.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/user")
 public class UserController {
 
-    @Autowired
     UserService userService;
     @Autowired
     UserRequestConverter requestConverter;
 
+    public UserController(UserService userService){
+        this.userService = userService;
+    }
 
     @GetMapping
     public String getUser(){

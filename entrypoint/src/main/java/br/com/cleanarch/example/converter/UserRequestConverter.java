@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 public class UserRequestConverter {
 
     public User toUser(UserRequest request){
-        return new User(request.getName());
+
+        return  User.from(request.getName());
     }
 }

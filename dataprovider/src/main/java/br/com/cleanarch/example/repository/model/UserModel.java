@@ -1,4 +1,4 @@
-package br.com.cleanarch.example.repository.entity;
+package br.com.cleanarch.example.repository.model;
 
 /*
 classe simboliza o model usado para persistencia no banco
@@ -16,13 +16,13 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserEntity {
+public class UserModel {
 
     @Id
     private String id;
     private String name;
 
-    public static UserEntity from(User user) {
-        return new UserEntity(user.getId(), user.getName());
+    public static UserModel from(User user) {
+        return new UserModel(user.getId(), user.getName());
     }
 }
