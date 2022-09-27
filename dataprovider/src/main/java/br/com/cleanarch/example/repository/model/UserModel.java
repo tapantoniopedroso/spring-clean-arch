@@ -25,4 +25,7 @@ public class UserModel {
     public static UserModel from(User user) {
         return new UserModel(user.getId(), user.getName());
     }
+    public User toUser(){
+        return new User(this.id, this.name);
+    }
 }

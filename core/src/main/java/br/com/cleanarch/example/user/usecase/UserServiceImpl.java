@@ -13,8 +13,13 @@ public class UserServiceImpl implements UserService {
         this.userRepo = userRepo;
     }
 
-    public void save(User user){
+    public String save(User user){
         user.setId(UUID.randomUUID().toString());
-        userRepo.save(user);
+        return userRepo.save(user);
+    }
+
+    @Override
+    public User find(String id) {
+        return userRepo.findById(id);
     }
 }

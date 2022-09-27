@@ -13,7 +13,16 @@ public class UserRepositoryImpl implements UserRepository {
     UserDao userDao;
 
     @Override
-    public void save(User user) {
-        userDao.save(UserModel.from(user));
+    public String save(User user) {
+        var userNew = userDao.save(UserModel.from(user));
+
+        return userNew.getId();
+    }
+
+    @Override
+    public User findById(String id) {
+        var user = userDao.findById(id);
+
+        return user.get().toUser();
     }
 }

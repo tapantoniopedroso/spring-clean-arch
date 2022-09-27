@@ -4,5 +4,6 @@ import br.com.cleanarch.example.user.entity.User;
 
 public interface UserService {
 
-    void save (User user);
+    String save (User user);
+    User find(String id);
 }
