@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     UserService userService;
-    @Autowired
+
     UserRequestConverter requestConverter;
 
     public UserController(UserService userService){
         this.userService = userService;
+        this.requestConverter = new UserRequestConverter();
     }
 
     @GetMapping(value = "/{id}")
